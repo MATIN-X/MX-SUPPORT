@@ -3,7 +3,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const cors = require('cors');
-const { initializeDatabase } = require('./database');
+const { initializeDatabase, pool } = require('./database');
 const AuthService = require('./auth');
 const TelegramBotService = require('../bot/telegram-bot');
 
