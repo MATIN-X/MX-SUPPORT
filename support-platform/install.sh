@@ -11,21 +11,21 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "================================\"
-echo -e " Support Platform Installer \"
-echo -e "================================\"
+echo -e "${GREEN}================================${NC}"
+echo -e "${GREEN}  Support Platform Installer    ${NC}"
+echo -e "${GREEN}================================${NC}"
 
 # Function to print colored output
 print_status() {
-    echo -e "[INFO]\ $1"
+    echo -e "${GREEN}[INFO]${NC} $1"
 }
 
 print_warning() {
-    echo -e "[WARNING]\ $1"
+    echo -e "${YELLOW}[WARNING]${NC} $1"
 }
 
 print_error() {
-    echo -e "[ERROR]\ $1"
+    echo -e "${RED}[ERROR]${NC} $1"
 }
 
 # Check if running as root
@@ -300,7 +300,7 @@ pm2 save
 
 print_status "Installation completed successfully!"
 echo
-echo -e "Access your support platform at:\"
+echo -e "${GREEN}Access your support platform at:${NC}"
 if [[ "$USE_CUSTOM_SSL_PORT" == true ]]; then
     echo -e "  User Interface: https://$DOMAIN:$SSL_PORT/User"
     echo -e "  Admin Panel: https://$DOMAIN:$SSL_PORT/Support"
@@ -319,4 +319,3 @@ echo -e "  User: $DB_USER"
 echo -e "  Password: $DB_PASS"
 echo
 print_status "Telegram Bot Token: $TELEGRAM_BOT_TOKEN"
-
