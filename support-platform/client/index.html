@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Platform - User</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <div id="root">
+        <div class="app-container">
+            <div class="login-container" id="loginContainer">
+                <div class="login-box">
+                    <h1>Support Platform</h1>
+                    <div class="auth-options">
+                        <button id="telegramAuthBtn" class="auth-btn telegram-btn">
+                            <span class="auth-icon">🤖</span>
+                            Authenticate with Telegram
+                        </button>
+                        <button id="guestAuthBtn" class="auth-btn guest-btn">
+                            <span class="auth-icon">👤</span>
+                            Continue as Guest
+                        </button>
+                    </div>
+                    <div id="telegramAuthContainer" class="hidden">
+                        <p>Enter the code sent to your Telegram:</p>
+                        <input type="text" id="telegramCode" placeholder="Authentication code">
+                        <button id="verifyTelegramCode" class="btn-primary">Verify Code</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-app hidden" id="mainApp">
+                <div class="sidebar">
+                    <div class="user-info">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-details">
+                            <h3 id="userName">User</h3>
+                            <span id="userType" class="user-type">Guest</span>
+                        </div>
+                    </div>
+                    <div class="conversations-list">
+                        <div class="conversations-header">
+                            <h2>Conversations</h2>
+                            <button id="newConversationBtn" class="btn-primary">New Chat</button>
+                        </div>
+                        <div id="conversationsContainer">
+                            <!-- Conversations will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2 id="chatTitle">Select a conversation</h2>
+                    </div>
+                    <div class="messages-container" id="messagesContainer">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                    <div class="message-input-container">
+                        <input type="text" id="messageInput" placeholder="Type your message...">
+                        <button id="sendMessageBtn" class="btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
