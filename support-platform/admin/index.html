@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Platform - Admin</title>
+    <link rel="stylesheet" href="../client/styles.css">
+    <link rel="manifest" href="../client/manifest.json">
+    <meta name="theme-color" content="#000000">
+</head>
+<body>
+    <div id="root">
+        <div class="app-container">
+            <div class="login-container" id="loginContainer">
+                <div class="login-box">
+                    <h1>Admin Panel</h1>
+                    <div class="login-form">
+                        <input type="text" id="adminUsername" placeholder="Username" required>
+                        <input type="password" id="adminPassword" placeholder="Password" required>
+                        <button id="adminLoginBtn" class="btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-app hidden" id="mainApp">
+                <div class="sidebar">
+                    <div class="admin-info">
+                        <div class="user-avatar">👤</div>
+                        <div class="user-details">
+                            <h3 id="adminName">Admin</h3>
+                            <span class="user-type">Administrator</span>
+                        </div>
+                    </div>
+                    <div class="admin-menu">
+                        <button id="conversationsTab" class="tab-btn active">Conversations</button>
+                        <button id="usersTab" class="tab-btn">Users</button>
+                        <button id="settingsTab" class="tab-btn">Settings</button>
+                    </div>
+                    <div class="conversations-list">
+                        <div class="conversations-header">
+                            <h2>All Conversations</h2>
+                        </div>
+                        <div id="conversationsContainer">
+                            <!-- Conversations will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h2 id="chatTitle">Select a conversation</h2>
+                        <div id="userBadge" class="user-badge"></div>
+                    </div>
+                    <div class="messages-container" id="messagesContainer">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                    <div class="message-input-container">
+                        <input type="text" id="messageInput" placeholder="Type your response...">
+                        <button id="sendMessageBtn" class="btn-primary">Send</button>
+                    </div>
+                </div>
+                
+                <div class="users-container hidden" id="usersContainer">
+                    <div class="users-header">
+                        <h2>Users</h2>
+                    </div>
+                    <div class="users-list" id="usersList">
+                        <!-- Users will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
